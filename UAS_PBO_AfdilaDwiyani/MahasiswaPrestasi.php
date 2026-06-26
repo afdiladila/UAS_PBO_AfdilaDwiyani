@@ -13,7 +13,6 @@ class MahasiswaPrestasi extends Mahasiswa {
 
     // METHOD OVERRIDING
     public function hitungTagihanSemester() {
-        // Total tagihan = tarifUktNominal * 0.25 (Bayar 25% saja)
         return $this->tarifUktNominal * 0.25;
     }
 
