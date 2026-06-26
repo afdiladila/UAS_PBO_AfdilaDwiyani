@@ -13,7 +13,6 @@ class MahasiswaMandiri extends Mahasiswa {
 
     // METHOD OVERRIDING
     public function hitungTagihanSemester() {
-        // Total tagihan = tarifUktNominal + 100000
         return $this->tarifUktNominal + 100000;
     }
 
