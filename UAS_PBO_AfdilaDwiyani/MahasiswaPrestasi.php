@@ -2,7 +2,6 @@
 require_once 'Mahasiswa.php';
 
 class MahasiswaPrestasi extends Mahasiswa {
-    // Properti tambahan spesifik Prestasi
     private $namaInstansiBeasiswa;
     private $minimalIpkSyarat;
 
@@ -12,18 +11,16 @@ class MahasiswaPrestasi extends Mahasiswa {
         $this->minimalIpkSyarat = $minimalIpkSyarat;
     }
 
-    // Implementasi Method Abstrak 1
+    // METHOD OVERRIDING
     public function hitungTagihanSemester() {
-        // Mahasiswa prestasi membayar UKT yang sudah dipotong/disesuaikan pemberi beasiswa
-        return $this->tarifUktNominal;
+        // Total tagihan = tarifUktNominal * 0.25 (Bayar 25% saja)
+        return $this->tarifUktNominal * 0.25;
     }
 
-    // Implementasi Method Abstrak 2
     public function tampilkanSpesifikasiAkademik() {
         return "Instansi Beasiswa: " . $this->namaInstansiBeasiswa . " | Syarat Minimal IPK: " . $this->minimalIpkSyarat;
     }
 
-    // Method khusus untuk mengambil semua data Mahasiswa Prestasi dari database
     public static function getQuerySemuaPrestasi($dbConnection) {
         $sql = "SELECT id_mahasiswa, nama_mahasiswa, nim, semester, tarif_ukt_nominal, nama_instansi_beasiswa, minimal_ipk_syarat 
                 FROM tabel_mahasiswa 
